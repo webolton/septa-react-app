@@ -1,15 +1,17 @@
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
 import GoogleMap from 'google-map-react';
 import SeptaMarker from './SeptaMarker.js';
 
 class PhilaMap extends Component {
 
+  directionHelper(direction){
+    return direction.replace( /([A-Z])/g, " $1" );
+  }
+
   static defaultProps = {
     center: [39.9516757, -75.1608584],
-    zoom: 15
+    zoom: 13,
   };
 
   render() {
@@ -23,7 +25,7 @@ class PhilaMap extends Component {
     }
 
     return (
-      <div style={{width: '100%', height: '400px'}}>
+      <div style={{width: '100%', height: '900px'}}>
         <GoogleMap
           bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_KEY}}
           center={this.props.center}
