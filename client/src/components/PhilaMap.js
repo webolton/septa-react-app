@@ -13,12 +13,22 @@ class PhilaMap extends Component {
   };
 
   render() {
+    let busMarkers;
+    if(this.props.busses.length > 0){
+      busMarkers = this.props.busses.map(bus => {
+        return (
+          <SeptaMarker lat={bus.lat} lng={bus.lng} text={this.directionHelper(bus.Direction)} key={bus.VehicleID} bus={bus}/>
+        )
+      })
+    }
+
     return (
       <div style={{width: '100%', height: '400px'}}>
         <GoogleMap
           bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_KEY}}
           center={this.props.center}
           zoom={this.props.zoom}>
+          {busMarkers}
         </GoogleMap>
       </div>
     );
