@@ -11,7 +11,6 @@ class App extends Component {
           <h2>Septa, Where You At?</h2>
         </div>
         <BusGetter />
-        <PhilaMap />
       </div>
     );
   }

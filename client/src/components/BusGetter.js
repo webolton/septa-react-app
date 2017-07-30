@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import PhilaMap from './PhilaMap'
 
 class BusGetter extends Component {
 
@@ -31,13 +32,15 @@ class BusGetter extends Component {
           </div>
           <input type="submit" value="submit" />
         </form>
+        <PhilaMap busses={this.state.busses}/>
       </div>
     );
   }
 }
 
-BusGetter.propTypes ={
-  directions: PropTypes.array,
+BusGetter.propTypes = {
+  handleSubmit: PropTypes.func,
+  getSeptaData: PropTypes.func
 }
 
 export default BusGetter;
