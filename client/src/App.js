@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BusGetter from './components/BusGetter'
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Septa, Where You At?</h2>
         </div>
+        <BusGetter />
       </div>
     );
   }
