@@ -12,6 +12,15 @@ class BusGetter extends Component {
     ]
   }
 
+  handleSubmit(e){
+    if(this.refs.route.value === ""){
+      alert("A route is required!")
+    } else {
+      console.log("submitted!!")
+    }
+      e.preventDefault();
+  };
+
   render() {
 
     let cardinalDirections = this.props.directions.map(direction => {
@@ -21,7 +30,7 @@ class BusGetter extends Component {
     return (
       <div>
         <h3>Find a bus!</h3>
-        <form>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>What route are you taking?</label>
             <input type="text" ref="route" />
