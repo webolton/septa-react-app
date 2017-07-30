@@ -7,8 +7,8 @@ class BusInfo extends Component {
     let busCount = this.props.buses.length
 
     return (
-      <div>
-        There are {busCount} buses traveling on this route.
+      <div className="alert alert-success" role="alert">
+        There are {busCount} buses traveling on this route. If you're lucky, there might be one coming!
       </div>
     );
   }
