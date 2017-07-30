@@ -59,18 +59,19 @@ class BusGetter extends Component {
     }
 
     return (
-      <div>
-        <h3>Find a bus!</h3>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <label>What route are you taking?</label>
-            <input type="text" ref="route" />
+      <div className="collapse navbar-collapse">
+        <form onSubmit={this.handleSubmit.bind(this)} className="navbar-form navbar-left">
+          <div className="form-group">
+            <span className="">Enter your route / bus number: </span>
+            <input type="text" ref="route" className="form-control bus-number-area" placeholder="Bus Number"/>
           </div>
-          <input type="submit" value="submit" />
+          <input type="submit" value="Find buses" className="btn btn-default"/>
         </form>
-        { noBuses }
-        { busInfo }
-        { philaMap }
+        <div className="container">
+          { noBuses }
+          { busInfo }
+          { philaMap }
+        </div>
       </div>
     );
   }
