@@ -12,11 +12,19 @@ class BusGetter extends Component {
     ]
   }
 
+  state = {busses: []}
+
+  getSeptaData(route){
+    fetch(`/septa_client/${route}`)
+      .then(res => res.json())
+      .then(busses => this.setState({ busses }));
+  }
+
   handleSubmit(e){
     if(this.refs.route.value === ""){
       alert("A route is required!")
     } else {
-      console.log("submitted!!")
+      this.getSeptaData(this.refs.route.value);
     }
       e.preventDefault();
   };
@@ -43,6 +51,11 @@ class BusGetter extends Component {
           </div>
           <input type="submit" value="submit" />
         </form>
+        <div>
+          {this.state.busses.map(bus =>
+            <div key={bus.trip}>{bus.VehicleID}</div>
+          )}
+        </div>
       </div>
     );
   }
