@@ -31,11 +31,6 @@ class BusGetter extends Component {
           </div>
           <input type="submit" value="submit" />
         </form>
-        <div>
-          {this.state.busses.map(bus =>
-            <div key={bus.trip}>{bus.VehicleID}</div>
-          )}
-        </div>
       </div>
     );
   }
