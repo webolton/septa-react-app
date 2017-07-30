@@ -19,6 +19,7 @@ class BusGetter extends Component {
     }
   }
 
+  // TODO: Handle bad request in Node app and back message in json
   getSeptaData(route){
     fetch(`/septa_client/${route}`)
       .then(res => res.json())
