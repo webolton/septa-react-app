@@ -16,8 +16,8 @@ class PhilaMap extends Component {
 
   render() {
     let busMarkers;
-    if(this.props.busses.length > 0){
-      busMarkers = this.props.busses.map(bus => {
+    if(this.props.buses.length > 0){
+      busMarkers = this.props.buses.map(bus => {
         return (
           <SeptaMarker lat={bus.lat} lng={bus.lng} text={this.directionHelper(bus.Direction)} key={bus.VehicleID} bus={bus}/>
         )
