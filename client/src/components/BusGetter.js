@@ -21,7 +21,19 @@ class BusGetter extends Component {
       e.preventDefault();
   };
 
+  // TODO: Calculate bounds and send with json from Node app
+  // setMapBounds(buses){
+  //   boundsHash = {}
+  //   busses.forEach(function(bus) {
+
+  //   })
+  // }
+
   render() {
+
+    // if(this.state.busses.length > 0){
+    //
+    // }
     return (
       <div>
         <h3>Find a bus!</h3>
