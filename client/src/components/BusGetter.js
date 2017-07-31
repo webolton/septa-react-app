@@ -29,9 +29,9 @@ class BusGetter extends Component {
 
   handleSubmit(e){
     if(this.refs.route.value === ""){
-      alert("A route number is required!")
+      alert("You must enter a route number to see buses")
     } else if(/\D/.test(this.refs.route.value)) {
-      alert("Only numbers premitted!")
+      alert("Please enter numbers only")
     } else {
       this.getSeptaData(this.refs.route.value);
     }
@@ -60,7 +60,7 @@ class BusGetter extends Component {
 
     return (
       <div>
-        <div className="collapse navbar-collapse">
+        <div className="collapse navbar-collapse septa-navbar">
           <form onSubmit={this.handleSubmit.bind(this)} className="navbar-form navbar-left">
             <div className="form-group">
               <span className="">Enter your route / bus number: </span>

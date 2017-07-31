@@ -1,5 +1,11 @@
+.septa-navbar {
+  margin-bottom: 2em;
+}
+.septa-header h2{
+  margin: 0 0 0 0;
+}
 .navbar-left{
-  padding-top: 1.9em;
+  padding-top: 1em;
 }
 .bus-number-area {
   margin: 0 1em 0 1em;
