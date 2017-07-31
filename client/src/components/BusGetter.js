@@ -54,7 +54,6 @@ class BusGetter extends Component {
     }
 
     if(this.state.no_buses === true){
-      console.log("No Buses")
       var noBuses = <NoBuses />
     }
 
