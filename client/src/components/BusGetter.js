@@ -3,10 +3,21 @@ import PropTypes from 'prop-types';
 import PhilaMap from './PhilaMap'
 import NoBuses from './NoBuses'
 import BusInfo from './BusInfo'
+import NotFound from './NotFound'
 
 class BusGetter extends Component {
 
   state = {buses: []}
+
+  handleErrors(res) {
+    if (!res.ok) {
+      if(res.status === 404){
+        this.setState({response_status: 404})
+        return res
+      }
+    }
+    return res;
+  }
 
   checkResponse(res){
     if(res.length === 0){
@@ -22,9 +33,12 @@ class BusGetter extends Component {
   // TODO: Handle bad request in Node app and back message in json
   getSeptaData(route){
     fetch(`/septa_client/${route}`)
+      .then(this.handleErrors.bind(this))
+      .then(this.handleErrors)
       .then(res => res.json())
       .then(this.checkResponse.bind(this))
       .then(buses => this.setState({ buses }))
+      .catch(err => console.log(err))
   }
 
   handleSubmit(e){
@@ -47,6 +61,9 @@ class BusGetter extends Component {
   // }
 
   render() {
+    if(this.state.response_status === 404) {
+      var notFound = <NotFound />
+    }
 
     if(this.state.buses.length > 0){
       var philaMap = <PhilaMap buses={this.state.buses}/>
@@ -69,6 +86,7 @@ class BusGetter extends Component {
           </form>
         </div>
         <div className="container">
+          { notFound }
           { noBuses }
           { busInfo }
           { philaMap }
