@@ -5,7 +5,7 @@ var requestify = require('requestify');
 router.get('/:route', function(req, res, next) {
 
   var routeId = req.params["route"]
-  requestify.get(`http://www3.septa.org/beta/TransitView/${routeId}`)
+  requestify.get(`http://www3.septa.org/transitview/bus_route_data/${routeId}`)
     .then(function(response) {
       let septaResponse = response.getBody();
       res.json(septaResponse["bus"]);
