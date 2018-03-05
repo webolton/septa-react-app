@@ -18,6 +18,10 @@ _Caveat lector imitatorque_: this is my _very_ first Node / React app.
     cd septa-react-app
     npm install
     cd client
+    cp .env.example .env
+
+enter a real Google Maps API Key in the .env file
+
     npm install
 
 ### Run the app in development mode
@@ -26,4 +30,5 @@ _Caveat lector imitatorque_: this is my _very_ first Node / React app.
 
 then open another terminal or tmux buffer and
 
-    cd client/ && npm start
+    cd client
+    npm start
